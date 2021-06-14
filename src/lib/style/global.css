@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+:root {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 1rem;
+  color: var(--blackish);
+  --blackish: #0e0d0d;
+  --whitish: #eeeeee;
+  --gray: #666666;
+  --lightgray: #bababa;
+  --darkGray: #333333;
+  --blue: #4682b4;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+a, button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: currentColor;
+  transition: all 300ms ease-out;
+}
+
+a:hover, button:hover {
+  color: var(--blue);
+}
