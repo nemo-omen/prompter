@@ -1,5 +1,6 @@
 <script>
   import { scripts } from '../services/db.service.js';
+  import Icon from '../Icon.svelte';
 </script>
 
 <section class="scripts">
@@ -7,13 +8,25 @@
     <h1>Scripts</h1>
   </header>
   <section class="script-list">
-      {#each $scripts as script}
-        <article class="script-item">
-          <a href="/{script.id}">{script.title}</a>
+    {#each $scripts as script}
+    <a href="/{script.id}">
+      <article class="script-item">
+        <section class="item-info">
+          <h2>{script.title}</h2>
           <p class="date">{script.date}</p>
-        </article>
+        </section>
+        <section class="item-control">
+          <button>
+            <Icon name="prompt" size={2} />
+          </button>
+          <button>
+            <Icon name="delete" size={2} />
+          </button>
+        </section>
+      </article>
+    </a>
       {/each}
-  </section>
+    </section>
 </section>
 
 <style>
@@ -29,17 +42,29 @@
   }
 
   .script-item {
+    display: flex;
+    justify-content: space-between;
     padding: 0.5rem;
     border: 1px solid var(--whitish);
     transition: all 300ms ease-out;
+    color: var(--gray);
   }
   .script-item:hover {
     background-color: var(--whitish);
+    color: var(--blackish);
+  }
+  .item-control {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
   }
   a {
     font-size: 2rem;
     font-weight: 700;
-    text-decoration: underline;
+    text-decoration: none;
+  }
+  h2 { 
+    font-size: 2rem;
   }
   .date {
     font-size: 1.25rem;
