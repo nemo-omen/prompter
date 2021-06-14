@@ -33,7 +33,7 @@
     opacity: 0.2;
     transition: all 300ms ease-in-out;
   }
-  .toolbar:hover {
+  .toolbar:hover, .toolbar:focus {
     opacity: 1;
   }
   .button-group {
