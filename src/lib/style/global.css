@@ -11,6 +11,7 @@
   color: var(--blackish);
   --blackish: #0e0d0d;
   --whitish: #fbfbfb;
+  --darkwhitish: #f1f1f1;
   --white: #ffffff;
   --gray: #666666;
   --lightgray: #bababa;
@@ -34,5 +35,10 @@ a, button {
 }
 
 a:hover, button:hover {
+  color: var(--blue);
+}
+
+button:focus {
+  outline: 1px solid var(--darkwhitish);
   color: var(--blue);
 }

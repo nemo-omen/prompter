@@ -30,12 +30,15 @@
     display: flex;
     justify-content: end;
     margin: 1rem 0;
-    opacity: 0.2;
     transition: all 300ms ease-in-out;
   }
-  .toolbar:hover, .toolbar:focus {
+  button { 
+    opacity: 0.2;
+  }
+  .toolbar:hover button, .toolbar:focus button, button:focus {
     opacity: 1;
   }
+  
   .button-group {
     display: flex;
     gap: 1rem;
