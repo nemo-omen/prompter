@@ -103,14 +103,8 @@
 </script>
 
 <section id="editor-content">
-  {#if cheatSheetVisible}
-  <article class="cheatsheet" transition:fly={{x: 1000, duration: 500}}>
-    <p>Stuff will live here</p>
-  </article>
-  {/if}
-
   <div class="doc-header">
-    <input type="text" class="title-input" placeholder="Title" bind:value={title} on:keydown={handleKeyPress} on:blur={handleBlur} />
+    <input type="text" class="title-input" placeholder="Title" tabindex="0" bind:value={title} on:keydown={handleKeyPress} on:blur={handleBlur} />
     <div class="sub-header">
       <h3 class="doc-date subheading">{date}</h3>
       <!-- <h3 class="doc-id subheading">ID: {id}</h3> -->
@@ -123,10 +117,14 @@
     />
   </div>
   <div class="doc-body">
-    <div class="editor" contenteditable on:blur={handleBlur} on:keydown={handleKeyPress} bind:innerHTML={content}>
-      
-    </div>
+    <textarea class="editor" on:blur={handleBlur} on:keydown={handleKeyPress} bind:value={content} />
   </div>
+
+  {#if cheatSheetVisible}
+  <article class="cheatsheet" transition:fly={{x: 1000, duration: 500}}>
+    <p>Stuff will live here</p>
+  </article>
+  {/if}
 </section>
 
 <style>
@@ -157,25 +155,32 @@
     font-size: 1.25rem;
     color: var(--lightgray);
   }
-  .doc-id {
-    font-weight: 400;
-  }
   .doc-body {
     position: relative;
     height: 100%;
   }
   .editor {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    resize: none;
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1.3;
-    overflow-y: auto;
-    overflow-x: hidden;
+    background-color: var(--whitish);
+    border: none;
+  }
+  .editor:focus {
+    background-color: var(--white);
   }
   .cheatsheet {
     position: absolute;

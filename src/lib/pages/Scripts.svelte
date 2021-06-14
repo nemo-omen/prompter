@@ -6,15 +6,13 @@
   <header>
     <h1>Scripts</h1>
   </header>
-  <section>
-    <ul>
+  <section class="script-list">
       {#each $scripts as script}
-        <li>
+        <article class="script-item">
           <a href="/{script.id}">{script.title}</a>
           <p class="date">{script.date}</p>
-        </li>
+        </article>
       {/each}
-    </ul>
   </section>
 </section>
 
@@ -26,17 +24,21 @@
     padding: 0.5rem 0 0.3rem 3rem;
     border-left: 2px dashed var(--lightgray);
   }
-  ul {
-    list-style-type: none;
-  }
-  ul > * + * {
+  :global(.script-list > * + *) {
     margin-top: 1rem;
   }
-  li {
-    font-weight: 700;
+
+  .script-item {
+    padding: 0.5rem;
+    border: 1px solid var(--whitish);
+    transition: all 300ms ease-out;
+  }
+  .script-item:hover {
+    background-color: var(--whitish);
   }
   a {
     font-size: 2rem;
+    font-weight: 700;
     text-decoration: underline;
   }
   .date {

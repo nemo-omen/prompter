@@ -10,7 +10,8 @@
   font-size: 1rem;
   color: var(--blackish);
   --blackish: #0e0d0d;
-  --whitish: #eeeeee;
+  --whitish: #fbfbfb;
+  --white: #ffffff;
   --gray: #666666;
   --lightgray: #bababa;
   --darkGray: #333333;

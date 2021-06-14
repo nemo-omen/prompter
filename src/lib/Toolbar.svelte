@@ -2,22 +2,24 @@
   import { createEventDispatcher } from 'svelte';
   import Icon from './Icon.svelte';
 
+  export let tabIndex = 0;
+
   const dispatch = createEventDispatcher();
   
 </script>
 
-<section class="toolbar">
+<section class="toolbar" tabindex={tabIndex}>
   <div class="button-group">
-    <button on:click={() => dispatch('newScript')}>
+    <button on:click={() => dispatch('newScript')} title="New Script">
       <Icon name="new" size={2} />
     </button>
-    <button on:click={() => dispatch('saveScript')}>
+    <button on:click={() => dispatch('saveScript')} title="Save">
       <Icon name="save" size={2} />
     </button>
-    <button on:click={() => dispatch('prompt')}>
+    <button on:click={() => dispatch('prompt')} title="Prompt">
       <Icon name="prompt" size={2} />
     </button>
-    <button on:click={() => dispatch('showInfo')}>
+    <button on:click={() => dispatch('showInfo')} title="Cheatsheet">
       <Icon name="info" size={2} />
     </button>
   </div>
@@ -28,7 +30,7 @@
     display: flex;
     justify-content: end;
     margin: 1rem 0;
-    opacity: 0;
+    opacity: 0.2;
     transition: all 300ms ease-in-out;
   }
   .toolbar:hover {
