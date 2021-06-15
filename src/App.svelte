@@ -1,6 +1,4 @@
 <script>
-  import { Route } from 'tinro';
-
   import './lib/style/global.css';
   import Home from './lib/pages/Home.svelte';
 </script>

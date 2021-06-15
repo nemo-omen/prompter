@@ -4,7 +4,7 @@
   import short from 'short-uuid';
   import { onMount, afterUpdate } from 'svelte';
   import { fade, fly } from 'svelte/transition';
-  import { scripts } from '../services/db.service.js';
+  import { scripts, save } from '../services/db.service.js';
   import Toolbar from '../Toolbar.svelte';
 
   let editor;
@@ -16,16 +16,31 @@
   let lastScript;
 
   router.subscribe((data) => {
-    console.log('Router data: ', data);
+    if(data.path === '/') {
+      clear();
+    }
     load();
   });
 
+  function clear() {
+    id = undefined;
+    title = '';
+    date = undefined;
+    content = '';
+  }
+
+  /**
+   * Toggles the visibility of the cheatsheet element
+   * @function toggleCheatSheet
+   */
   function toggleCheatSheet() {
     cheatSheetVisible = !cheatSheetVisible;
   }
 
+  /**
+   * Creates a new script by clearing the title & content, generating new date & id values, and pushing the router to '/' 
+   */
   function newScript() {
-    id = undefined;
     title = '';
     id = short.generate();
     content = '';
@@ -34,14 +49,17 @@
     console.log('newScript');
   }
 
+  /**
+   * Send the current script to the prompter.
+   * @param {String} scriptId - the ID of the script to send to the prompter
+   */
   function prompt() {
     console.log('prompt');
   }
 
-  function showInfo() {
-    console.log('showInfo');
-  }
-
+  /**
+   * Persists the current script's values.
+   */
   async function saveScript() {
     const exists = $scripts.filter((script) => script.id === id)[0];
     const script = {
@@ -56,14 +74,13 @@
         script.title = 'Untitled';
         title = 'Untitled';
       }
-
-      $scripts = [script, ...$scripts];
     } else {
       const oldScripts = $scripts.filter((script) => script.id !== id);
-      scripts.set([script, ...oldScripts]);
     }
-    console.log($scripts);
+    save(script);
+    router.goto('/' + id);
   }
+
 
   function handleKeyPress(event) {
     if(event.ctrlKey) {
@@ -80,7 +97,7 @@
 
   function getScriptById(scriptId) {
     const script = $scripts.filter((script) => script.id === scriptId)[0];
-    console.log('Requested script: ', script);
+    // console.log('Requested script: ', script);
     if(script === undefined) {
       return;
     } else {

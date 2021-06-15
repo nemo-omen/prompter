@@ -1,6 +1,21 @@
 <script>
-  import { scripts } from '../services/db.service.js';
+  import { flip } from 'svelte/animate';
+  import { meta, router } from 'tinro';
+  import { scripts, remove } from '../services/db.service.js';
   import Icon from '../Icon.svelte';
+
+  let path = '';
+
+  router.subscribe((data) => {
+    path = data.path;
+  });
+
+  function deleteScript(id) {
+    remove(id);
+    if(path === '/' + id) {
+      router.goto('/');
+    }
+  }
 </script>
 
 <section class="scripts">
@@ -8,23 +23,23 @@
     <h1>Scripts</h1>
   </header>
   <section class="script-list">
-    {#each $scripts as script}
-    <a href="/{script.id}">
-      <article class="script-item">
+    {#each $scripts as script (script.id)}
+    <article class="script-item" animate:flip>
+        <a href="/{script.id}">
         <section class="item-info">
           <h2>{script.title}</h2>
           <p class="date">{script.date}</p>
         </section>
+      </a>
         <section class="item-control">
           <button>
             <Icon name="prompt" size={2} />
           </button>
-          <button>
+          <button on:click={() => deleteScript(script.id)}>
             <Icon name="delete" size={2} />
           </button>
         </section>
       </article>
-    </a>
       {/each}
     </section>
 </section>
@@ -49,7 +64,7 @@
     transition: all 300ms ease-out;
     color: var(--gray);
   }
-  .script-item:hover {
+  .script-item:hover, article:focus{
     background-color: var(--whitish);
     color: var(--blackish);
   }
