@@ -7,7 +7,6 @@
 
 :root {
   font-family: "Anonymous Pro", monospace;
-  font-size: 1rem;
   color: var(--blackish);
   --blackish: #0e0d0d;
   --whitish: #fbfbfb;
@@ -17,11 +16,22 @@
   --lightgray: #bababa;
   --darkGray: #333333;
   --blue: #4682b4;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.33rem;
+  --size-600: 1.77rem;
+  --size-700: 2.36rem;
+  --size-800: 3.15rem;
+  --size-900: 4.2rem;
+  font-size: var(--size-400);
 }
 
 #app {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 a, button {
@@ -41,4 +51,25 @@ a:hover, button:hover {
 button:focus {
   outline: 1px solid var(--darkwhitish);
   color: var(--blue);
+}
+
+h1 {
+  font-size: var(--size-700);
+}
+
+h2 {
+  font-size: var(--size-600);
+}
+
+h3 {
+  font-size: var(--size-500);
+}
+
+h4 {
+  font-size: var(--size-400);
+}
+
+::selection {
+  background-color: var(--blackish);
+  color: var(--whitish);
 }

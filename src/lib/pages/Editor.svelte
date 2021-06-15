@@ -199,6 +199,9 @@
   .editor:focus {
     background-color: var(--white);
   }
+  :global(.editor > * + *) {
+    margin-top: 1.5rem;
+  }
   .cheatsheet {
     position: absolute;
     bottom: 0;
