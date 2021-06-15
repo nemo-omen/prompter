@@ -19,7 +19,7 @@
     padding: 3rem;
     height: 100vh;
     display: grid;
-    grid-template-columns: 6fr 5fr;
+    grid-template-columns: 6fr 4fr;
     grid-gap: 3rem;
   }
 </style>
