@@ -32,7 +32,7 @@
     width: 7rem;
     height: 100vh;
     padding: 3rem 1rem;
-    border-right: 2px solid var(--darkgray);
+    /* border-right: 2px solid var(--darkgray); */
     background-color: var(--lightblackish);
   }
   nav {

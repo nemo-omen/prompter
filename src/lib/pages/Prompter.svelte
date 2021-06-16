@@ -56,8 +56,9 @@
 
 <style>
   .header-display {
-    width: 5rem;
-    background-color: var(--blackish);
+    width: 7rem;
+    background-color: var(--mutedlightblackish);
+    border-right: 1px solid var(--lightlightblackish);
   }
   .prompter {
     padding: 15vh 10vw;
