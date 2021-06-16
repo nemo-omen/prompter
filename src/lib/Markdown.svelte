@@ -2,6 +2,7 @@
   import { getScript } from './services/db.service.js';
   import remark from 'remark';
   import html from 'remark-html';
+  import breaks from 'remark-breaks';
   import { onMount, afterUpdate } from 'svelte';
 
   export let id;
@@ -12,6 +13,7 @@
 
   function processContent() {
     remark()
+      .use(breaks)
       .use(html)
       .process(getScript(id).content, (error, file) =>{
         parsed =  String(file);
