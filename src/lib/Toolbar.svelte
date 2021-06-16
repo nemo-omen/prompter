@@ -3,6 +3,7 @@
   import Icon from './Icon.svelte';
 
   export let tabIndex = 0;
+  export let id;
 
   const dispatch = createEventDispatcher();
   
@@ -16,9 +17,9 @@
     <button on:click={() => dispatch('saveScript')} title="Save">
       <Icon name="save" size={2} />
     </button>
-    <button on:click={() => dispatch('prompt')} title="Prompt">
+    <a href="/prompt/{id}" title="Prompt">
       <Icon name="prompt" size={2} />
-    </button>
+    </a>
     <button on:click={() => dispatch('showInfo')} title="Cheatsheet">
       <Icon name="info" size={2} />
     </button>
@@ -32,10 +33,15 @@
     margin: 1rem 0;
     transition: all 300ms ease-in-out;
   }
-  button { 
+  button, a { 
     opacity: 0.2;
   }
-  .toolbar:hover button, .toolbar:focus button, button:focus {
+  .toolbar:hover button, 
+  .toolbar:focus button, 
+  .toolbar:hover a,
+  .toolbar:focus a,
+  button:focus,
+  a:focus  {
     opacity: 1;
   }
   

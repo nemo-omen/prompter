@@ -131,6 +131,7 @@
       on:saveScript={saveScript}
       on:prompt={prompt}
       on:showInfo={toggleCheatSheet}
+      {id}
     />
   </div>
   <div class="doc-body">
