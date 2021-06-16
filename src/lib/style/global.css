@@ -3,10 +3,10 @@
   margin: 0;
   padding: 0;
   line-height: 1;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 :root {
-  font-family: "Anonymous Pro", monospace;
   color: var(--blackish);
   --blackish: #0e0d0d;
   --lightblackish: #141313;

@@ -5,6 +5,8 @@
   import { onMount, afterUpdate } from 'svelte';
 
   export let id;
+  export let fontSize;
+  export let mirrored;
 
   $: parsed = '';
 
@@ -21,4 +23,17 @@
   });
 </script>
 
-{@html parsed}
+<div class="content" style="font-size: {fontSize}rem; {mirrored ? 'transform: scale(-1,1)' : ''}">
+  {@html parsed}
+</div>
+
+<style>
+  :global(.content > *) {
+    line-height: 1.5;
+    letter-spacing: 5px;
+    word-break: keep-all;
+  }
+  :global(.content > * + *) {
+    margin-top: 4rem;
+  }
+</style>

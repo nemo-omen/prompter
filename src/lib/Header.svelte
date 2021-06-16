@@ -1,9 +1,12 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import { fly } from 'svelte/transition';
   import { quintInOut } from 'svelte/easing';
   import Icon from './Icon.svelte';
   import { router } from 'tinro';
   import { fade } from 'svelte/transition';
+
+  const dispatch = createEventDispatcher();
 
   export let id;
 </script>
@@ -14,13 +17,9 @@
     <a href="/{id}"><Icon name="edit" size={3} title="Edit" /></a>
   </nav>
   <nav>
-    {#if $router.path === '/prompt'}
-    <button><Icon name="increase" size={3} /></button>
-    <button><Icon name="decrease" size={3} /></button>
-    <button><Icon name="mirror" size={3} /></button>
-    {:else if $router.path === '/edit'}
-    <button><Icon name="save" size={3} /></button>
-    {/if}
+    <button on:click={() => dispatch('increaseTypeSize')}><Icon name="increase" size={3} /></button>
+    <button on:click={() => dispatch('decreaseTypeSize')}><Icon name="decrease" size={3} /></button>
+    <button on:click={() => dispatch('mirror')}><Icon name="mirror" size={3} /></button>
   </nav>
 </header>
 
@@ -43,10 +42,10 @@
     gap: 3rem;
   }
 
-  nav a {
+  nav a, nav button {
     color: var(--darkgray);
   }
-  nav a:hover {
+  nav a:hover, nav button:hover {
     color: var(--blue);
   }
 </style>
