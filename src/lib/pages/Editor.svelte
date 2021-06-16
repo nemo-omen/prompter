@@ -9,7 +9,7 @@
 
   let editor;
   let cheatSheetVisible = false;
-  export let id;
+  export let id = '';
   let title = "";
   let date;
   let content = "";

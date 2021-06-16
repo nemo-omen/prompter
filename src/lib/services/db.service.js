@@ -27,7 +27,7 @@ export function loadScripts() {
  * @param {String} id - the id of the script to retrieve
  */
 export function getScript(id) {
-  JSON.parse(db.getItem('scripts')).filter((script) => script.id === id)[0];
+  return JSON.parse(db.getItem('scripts')).filter((script) => script.id === id)[0];
 }
 
 /**

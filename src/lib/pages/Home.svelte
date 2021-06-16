@@ -2,17 +2,28 @@
   import { Route } from 'tinro';
   import Scripts from './Scripts.svelte';
   import Editor from './Editor.svelte';
+  import Prompter from './Prompter.svelte';
 </script>
 
-<section class="home">
   <Route path="/">
-    <Editor />
+    <section class="home">
+      <Editor />
+      <Scripts />
+    </section>
   </Route>
+
   <Route path="/:id" let:meta>
-    <Editor id={meta.params.id} />
+    <section class="home">
+      <Editor id={meta.params.id} />
+      <Scripts />
+    </section>
   </Route>
-  <Scripts />
-</section>
+
+  <Route path="/prompt/:id" let:meta>
+    <section class="prompter-home">
+      <Prompter id={meta.params.id} />
+    </section>
+  </Route>
 
 <style>
   .home {
@@ -21,5 +32,12 @@
     display: grid;
     grid-template-columns: 6fr 4fr;
     grid-gap: 3rem;
+  }
+  .prompter-home {
+    height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: var(--blackish);
   }
 </style>

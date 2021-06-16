@@ -22,7 +22,7 @@
 <section class="scripts">
   <header>
     <h1>Scripts</h1>
-    <a href="/" class="header-link">
+    <a href="/" class="header-link" title="New Script">
       <Icon name="new" size={2} />
     </a>
   </header>
@@ -36,10 +36,10 @@
         </section>
       </a>
         <section class="item-control">
-          <button>
+          <a href="/prompt/{script.id}" title="Prompt">
             <Icon name="prompt" size={2} />
-          </button>
-          <button on:click={() => deleteScript(script.id)}>
+          </a>
+          <button on:click={() => deleteScript(script.id)} title="Delete">
             <Icon name="delete" size={2} />
           </button>
         </section>
@@ -55,7 +55,7 @@
     align-items: center;
   }
   .header-link {
-    color: var(--lightgray);
+    color: var(--gray);
   }
   .header-link:hover, .header-link:focus, .header-link:active {
     color: var(--blue);

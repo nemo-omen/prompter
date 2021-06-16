@@ -9,12 +9,13 @@
   font-family: "Anonymous Pro", monospace;
   color: var(--blackish);
   --blackish: #0e0d0d;
+  --lightblackish: #141313;
   --whitish: #fbfbfb;
   --darkwhitish: #f1f1f1;
   --white: #ffffff;
   --gray: #666666;
   --lightgray: #bababa;
-  --darkGray: #333333;
+  --darkgray: #333333;
   --blue: #4682b4;
   --size-300: 0.75rem;
   --size-400: 1rem;

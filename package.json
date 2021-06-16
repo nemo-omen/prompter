@@ -14,8 +14,11 @@
     "localforage": "^1.9.0",
     "lowdb": "^2.1.0",
     "pouchdb": "^7.2.2",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "short-uuid": "^4.2.0",
     "tinro": "^0.6.4",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "vfile-reporter": "^7.0.0"
   }
 }

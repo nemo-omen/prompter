@@ -1,14 +1,14 @@
 <script>
+  import { fly } from 'svelte/transition';
+  import { quintInOut } from 'svelte/easing';
   import Icon from './Icon.svelte';
   import { router } from 'tinro';
   import { fade } from 'svelte/transition';
 </script>
 
-<header>
+<header transition:fly={{x: -100, duration: 300, easing: quintInOut}}>
   <nav>
     <a href="/"><Icon name="script" size={3} title="Scripts" /></a>
-    <a href="/prompt"><Icon name="prompt" size={3} title="Prompt" /></a>
-    <a href="/edit"><Icon name="edit" size={3} title="Edit" /></a>
   </nav>
   <nav>
     {#if $router.path === '/prompt'}
@@ -26,15 +26,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 5rem;
+    align-items: center;
+    width: 7rem;
     height: 100vh;
     padding: 3rem 1rem;
-    border-right: 2px solid var(--blackish);
+    border-right: 2px solid var(--darkgray);
+    background-color: var(--lightblackish);
   }
   nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 3rem;
+  }
+
+  nav a {
+    color: var(--darkgray);
+  }
+  nav a:hover {
+    color: var(--blue);
   }
 </style>
