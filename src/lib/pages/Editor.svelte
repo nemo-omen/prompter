@@ -139,7 +139,7 @@
   </div>
 
   {#if cheatSheetVisible}
-  <article class="cheatsheet" transition:fly={{x: 1000, duration: 500}}>
+  <article class="cheatsheet" transition:fly={{y: 1000, duration: 500}}>
     <p>Stuff will live here</p>
   </article>
   {/if}
@@ -192,7 +192,6 @@
     resize: none;
     font-size: 3rem;
     text-transform: uppercase;
-    font-weight: 700;
     line-height: 1.3;
     background-color: var(--whitish);
     border: none;

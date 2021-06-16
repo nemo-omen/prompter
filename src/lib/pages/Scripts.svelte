@@ -97,9 +97,12 @@
   }
   a {
     font-size: 2rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-decoration: none;
     justify-self: stretch;
+  }
+  h2 {
+    font-weight: 500;
   }
   .date {
     font-size: var(--size-400);
