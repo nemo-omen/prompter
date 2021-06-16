@@ -4,11 +4,14 @@
   import Icon from './Icon.svelte';
   import { router } from 'tinro';
   import { fade } from 'svelte/transition';
+
+  export let id;
 </script>
 
 <header transition:fly={{x: -100, duration: 300, easing: quintInOut}}>
   <nav>
     <a href="/"><Icon name="script" size={3} title="Scripts" /></a>
+    <a href="/{id}"><Icon name="edit" size={3} title="Edit" /></a>
   </nav>
   <nav>
     {#if $router.path === '/prompt'}

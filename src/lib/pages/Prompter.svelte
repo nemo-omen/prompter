@@ -25,7 +25,7 @@
 </script>
 <section class="header-display" on:mouseenter={showHeader} on:mouseleave={hideHeader}>
   {#if headerVisible}
-  <Header />
+  <Header {id}/>
   {/if}
 </section>
 <section class="prompter">
