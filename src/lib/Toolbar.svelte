@@ -2,14 +2,13 @@
   import { createEventDispatcher } from 'svelte';
   import Icon from './Icon.svelte';
 
-  export let tabIndex = 0;
   export let id;
 
   const dispatch = createEventDispatcher();
   
 </script>
 
-<section class="toolbar" tabindex={tabIndex}>
+<section class="toolbar">
   <div class="button-group">
     <button on:click={() => dispatch('newScript')} title="New Script">
       <Icon name="new" size={2} />
@@ -37,16 +36,15 @@
     color: var(--gray);
   }
   
-  button:hover, a:hover {
-    color: var(--blue);
+  button:hover,
+  a:hover {
+    color: var(--blackish);
   }
-  .toolbar:hover button, 
-  .toolbar:focus button, 
-  .toolbar:hover a,
-  .toolbar:focus a,
+
   button:focus,
-  a:focus  {
-    opacity: 1;
+  a:focus {
+    color: var(--blue);
+    outline: 1px solid var(--lightgray);
   }
   
   .button-group {

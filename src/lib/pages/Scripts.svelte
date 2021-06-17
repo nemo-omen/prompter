@@ -58,7 +58,7 @@
     color: var(--gray);
   }
   .header-link:hover, .header-link:focus, .header-link:active {
-    color: var(--blue);
+    color: var(--blackish);
   }
   .scripts {
     display: flex;

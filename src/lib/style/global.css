@@ -48,12 +48,12 @@ a, button {
 }
 
 a:hover, button:hover {
-  color: var(--blue);
+  color: var(--blackish);
 }
 
 button:focus {
   outline: 1px solid var(--darkwhitish);
-  color: var(--blue);
+  color: var(--blackish);
 }
 
 h1 {

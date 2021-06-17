@@ -43,9 +43,9 @@
   }
 
   nav a, nav button {
-    color: var(--darkgray);
+    color: var(--gray);
   }
   nav a:hover, nav button:hover {
-    color: var(--blue);
+    color: var(--blackish);
   }
 </style>
