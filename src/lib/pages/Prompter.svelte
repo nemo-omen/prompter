@@ -78,7 +78,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    color: var(--darkgray);
+    color: var(--gray);
   }
   .prompter {
     padding: 10vh 10vw;

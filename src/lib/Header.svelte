@@ -32,7 +32,6 @@
     width: 7rem;
     height: 100vh;
     padding: 3rem 1rem;
-    /* border-right: 2px solid var(--darkgray); */
     background-color: var(--lightblackish);
   }
   nav {
@@ -43,9 +42,9 @@
   }
 
   nav a, nav button {
-    color: var(--gray);
+    color: var(--lightgray);
   }
   nav a:hover, nav button:hover {
-    color: var(--blackish);
+    color: var(--blue);
   }
 </style>
