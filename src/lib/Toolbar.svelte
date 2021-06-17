@@ -32,24 +32,8 @@
     margin: 1rem 0;
     transition: all 300ms ease-in-out;
   }
-  button, a { 
-    color: var(--gray);
-  }
-  
-  button:hover,
-  a:hover {
-    color: var(--blackish);
-  }
-
-  button:focus,
-  a:focus {
-    color: var(--blue);
-    outline: 1px solid var(--lightgray);
-  }
-  
   .button-group {
     display: flex;
     gap: 1rem;
-    color: var(--lightgray);
   }
 </style>

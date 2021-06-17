@@ -45,6 +45,7 @@ a, button {
   text-decoration: none;
   color: currentColor;
   transition: all 300ms ease-out;
+  color: var(--gray);
 }
 
 a:hover, button:hover {
@@ -52,7 +53,7 @@ a:hover, button:hover {
 }
 
 button:focus {
-  outline: 1px solid var(--darkwhitish);
+  outline: 1px solid var(--lightgray);
   color: var(--blackish);
 }
 
