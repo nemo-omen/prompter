@@ -21,7 +21,7 @@
 
 <section class="scripts">
   <header>
-    <h1>Scripts</h1>
+    <h2>Scripts</h2>
     <a href="/" class="header-link" title="New Script">
       <Icon name="new" size={2} />
     </a>
@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding: 0.5rem 0 0.3rem 3rem;
+    padding-left: 3rem;
     border-left: 2px dashed var(--lightgray);
     overflow: hidden;
   }
@@ -101,13 +101,10 @@
     text-decoration: none;
     justify-self: stretch;
   }
-  h2 {
-    font-weight: 500;
-  }
   .date {
     font-size: var(--size-400);
     font-weight: 500;
     margin: 0.5rem 0.25rem;
-    color: var(--lightgray);
+    color: var(--gray);
   }
 </style>

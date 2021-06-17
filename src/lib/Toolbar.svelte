@@ -34,7 +34,11 @@
     transition: all 300ms ease-in-out;
   }
   button, a { 
-    opacity: 0.2;
+    color: var(--gray);
+  }
+  
+  button:hover, a:hover {
+    color: var(--blue);
   }
   .toolbar:hover button, 
   .toolbar:focus button, 

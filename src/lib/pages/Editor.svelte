@@ -121,8 +121,12 @@
 
 <section id="editor-content">
   <div class="doc-header">
-    <input type="text" class="title-input" placeholder="Title" tabindex="0" bind:value={title} on:keydown={handleKeyPress} on:blur={handleBlur} />
+    <h2>Editing{title !== '' ? ': ' + title : ''}</h2>
+    <div class="title-group">
+      <input type="text" id="script-title" class="title-input" placeholder="Title" tabindex="0" bind:value={title} on:keydown={handleKeyPress} on:blur={handleBlur} />
+    </div>
     <div class="sub-header">
+      <label for="script-title" class="title-label">Title</label>
       <h3 class="doc-date subheading">{date}</h3>
       <!-- <h3 class="doc-id subheading">ID: {id}</h3> -->
     </div>
@@ -135,7 +139,8 @@
     />
   </div>
   <div class="doc-body">
-    <textarea class="editor" on:blur={handleBlur} on:keydown={handleKeyPress} bind:value={content} />
+    <label for="script-content" class="content-label">Content</label>
+    <textarea id="script-content" class="editor" on:blur={handleBlur} on:keydown={handleKeyPress} bind:value={content}></textarea>
   </div>
 
   {#if cheatSheetVisible}
@@ -150,40 +155,54 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    /* overflow: hidden; */
   }
   .doc-header > * + * {
-    margin-top: 0.5rem;
+    margin-top: 3rem;
   }
   .sub-header {
     display: flex;
     justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
   .title-input {
     width: 100%;
     font-family: "Anonymous Pro", monospace;
     font-size: 2rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     border: none;
     border-bottom: 1px solid #000;
+    /* order: 1; */
+  }
+  .title-label {
+    padding: 0 0.5rem;
+    /* order: 2; */
   }
   .title-input:focus, .editor:focus {
     outline: 1px solid var(--lightgray);
   }
   .subheading {
     font-size: 1.25rem;
-    color: var(--lightgray);
+    color: var(--gray);
+    font-weight: 500;
   }
   .doc-body {
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+  .content-label {
+    padding: 0 0 0.5rem 0.5rem;
   }
   .editor {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
     height: 100%;
     padding: 0.5rem;

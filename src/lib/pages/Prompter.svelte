@@ -11,6 +11,7 @@
 
   $: script = '';
   $: fontSize = 4;
+  $: headingSize = fontSize * 1.5;
   $: mirrored = false;
 
   let headerVisible = false;
@@ -53,7 +54,7 @@
   </div>
   {/if}
 </section>
-<section class="prompter">
+<section class="prompter" style="--heading-size:{headingSize}">
   <Markdown 
   {id}
   bind:fontSize={fontSize}
@@ -80,12 +81,22 @@
     color: var(--darkgray);
   }
   .prompter {
-    padding: 15vh 10vw;
+    padding: 10vh 10vw;
     font-size: var(--size-900);
     font-weight: 500;
     text-transform: uppercase;
+    text-align: left;
     color: var(--whitish);
     overflow-y: auto;
     scroll-behavior: smooth;
+  }
+  :global(.prompter h1, .prompter h2, .prompter h3) {
+    font-size: var(--heading-size);
+    display: block;
+    border-top: 5px solid gold;
+    border-bottom: 5px solid gold;
+    text-align: center;
+    margin: 10vh;
+    color: gold;
   }
 </style>
