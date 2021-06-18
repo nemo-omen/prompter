@@ -13,6 +13,8 @@
   $: fontSize = 4;
   $: headingSize = fontSize * 1.5;
   $: mirrored = false;
+  $: transcript = [];
+  $: supportedBrowser = false;
 
   let headerVisible = false;
 
@@ -38,13 +40,41 @@
 
   onMount(() => {
     script = getScript(id);
+
+    try {
+      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      const recognition = new SpeechRecognition();
+
+      recognition.interimResults = true;
+
+      recognition.addEventListener('result', (event) => {
+        console.log(event.results);
+        transcript = Array.from(event.results);
+      });
+
+      supportedBrowser = true;
+  
+      recognition.start();
+
+    } catch(error) {
+      if(error.name === 'TypeError') {
+        if(error.message === 'SpeechRecognition is not a constructor') {
+          supportedBrowser = false;
+        }
+      }
+    }
+
+
+
+
   });
 </script>
 <section class="header-display" on:mouseenter={showHeader} on:mouseleave={hideHeader}>
   {#if headerVisible}
   <Header
   {id}
-  on:increaseTypeSize={increaseTypeSize}  
+  on:increaseTypeSize={increaseTypeSize}
   on:decreaseTypeSize={decreaseTypeSize}
   on:mirror={mirror}
   />
@@ -81,7 +111,8 @@
     color: var(--gray);
   }
   .prompter {
-    padding: 10vh 10vw;
+    margin-block: 10vh;
+    padding-inline: 10vw;
     font-size: var(--size-900);
     font-weight: 500;
     text-transform: uppercase;
