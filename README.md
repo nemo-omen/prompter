@@ -2,6 +2,10 @@
 
 This is a really basic teleprompter for use in a desktop browser.
 
+![](./public/Prompter_Editing_Screenshot.png)
+
+![](./public/Prompter_Prompting_Screenshot.png)
+
 Features:
 
 - autosave - any scripts being edited will auto-save when focus is moved out of the editor. `CTRL+S` will also save the script.
