@@ -45,12 +45,11 @@
 </script>
 <figure class="icon" style="font-size: {size}rem">
   <svg class="icon" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd" aria-labelledby="icon-label">
-    <!-- <title id="icon-label">{title}</title> -->
     {#each paths as path}
     <path d={path}></path>
     {/each}
   </svg>
-    <figcaption class="visually-hidden" style="font-size: {titleSize}rem">{title}</figcaption>
+  <figcaption class="title" style="font-size: {titleSize}rem">{title}</figcaption>
 </figure>
 
 <style>
@@ -63,12 +62,19 @@
     fill: currentColor;
     transition: all 300ms ease-out;
     overflow: visible;
+    color: inherit;
   }
-  .visually-hidden  { 
+  .title  { 
     opacity: 0;
+    color: currentColor;
+    transition: opacity 300ms ease-out;
   }
 
-  .icon:hover > .visually-hidden, .icon:focus > .visually-hidden {
+  .icon:hover {
+    color: var(--text-color);
+  }
+
+  .icon:hover > .title, .icon:focus > .title {
     opacity: 1;
   }
 </style>

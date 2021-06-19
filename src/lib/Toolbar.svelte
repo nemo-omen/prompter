@@ -34,7 +34,7 @@
   }
   .button-group {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
   }
   :global(button:focus > .icon > .visually-hidden, .button:focus > .icon > .visually-hidden) {
     opacity: 1;

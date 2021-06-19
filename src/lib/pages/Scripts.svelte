@@ -67,6 +67,8 @@
     overflow: hidden;
   }
   .script-list {
+    padding: 0.5rem 0 0 0;
+    margin: 0.5rem;
     overflow-y: auto;
     height: 100%;
   }
@@ -89,17 +91,13 @@
     justify-content: space-around;
     justify-self: flex-end;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     margin: 0 0.5rem 0 0;
   }
   a {
     font-size: 2rem;
     text-decoration: none;
     justify-self: stretch;
-  }
-  a:focus {
-    background-color: var(--focus-background-color);
-    color: var(--focus-color);
   }
   .date {
     font-size: var(--size-400);
