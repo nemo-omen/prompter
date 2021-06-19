@@ -81,7 +81,7 @@
   transition: all 300ms ease-out;
 }
 
-#theme-switch:checked ~ .home{
+#theme-switch:checked ~ .home, .prompter-home {
   --text-color: var(--whitish);
   --background-color: var(--blackish);
   --focus-background-color: var(--lightblackish);

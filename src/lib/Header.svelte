@@ -17,9 +17,9 @@
     <a href="/{id}"><Icon name="edit" size={3} title="Edit" /></a>
   </nav>
   <nav>
-    <button on:click={() => dispatch('increaseTypeSize')}><Icon name="increase" size={3} /></button>
-    <button on:click={() => dispatch('decreaseTypeSize')}><Icon name="decrease" size={3} /></button>
-    <button on:click={() => dispatch('mirror')}><Icon name="mirror" size={3} /></button>
+    <button on:click={() => dispatch('increaseTypeSize')}><Icon name="increase" size={3} title="Increase" /></button>
+    <button on:click={() => dispatch('decreaseTypeSize')}><Icon name="decrease" size={3} title="Decrease" /></button>
+    <button on:click={() => dispatch('mirror')}><Icon name="mirror" size={3} title="Mirror" /></button>
   </nav>
 </header>
 
@@ -44,7 +44,7 @@
   nav a, nav button {
     color: var(--lightgray);
   }
-  nav a:hover, nav button:hover {
-    color: var(--blue);
+  nav a:hover, nav button:hover, :global(nav a:hover > .icon), :global(nav button:hover > .icon) {
+    color: var(--whitish);
   }
 </style>

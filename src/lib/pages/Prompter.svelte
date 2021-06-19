@@ -38,6 +38,10 @@
     mirrored = !mirrored;
   }
 
+  function autoscroll() {
+    console.log('HEYOOO');
+  }
+
   onMount(() => {
     script = getScript(id);
 
@@ -64,13 +68,9 @@
         }
       }
     }
-
-
-
-
   });
 </script>
-<section class="header-display" on:mouseenter={showHeader} on:mouseleave={hideHeader}>
+<section class="header-display" on:mouseenter={showHeader} on:mouseleave={hideHeader} on:focus={showHeader} tabindex="0">
   {#if headerVisible}
   <Header
   {id}
@@ -84,7 +84,7 @@
   </div>
   {/if}
 </section>
-<section class="prompter" style="--heading-size:{headingSize}">
+<section class="prompter" style="--heading-size:{headingSize}" on:focus={hideHeader} tabindex="0">
   <Markdown 
   {id}
   bind:fontSize={fontSize}
@@ -120,6 +120,9 @@
     color: var(--whitish);
     overflow-y: auto;
     scroll-behavior: smooth;
+  }
+  .prompter:focus {
+    outline: 1px dotted var(--blackish);
   }
   :global(.prompter h1, .prompter h2, .prompter h3) {
     font-size: var(--heading-size);
