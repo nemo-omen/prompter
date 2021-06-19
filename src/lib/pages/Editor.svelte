@@ -155,7 +155,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* overflow: hidden; */
   }
   .doc-header > * + * {
     margin-top: 3rem;
@@ -176,15 +175,20 @@
     font-size: 2rem;
     padding: 0.5rem 0;
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--text-color);
     /* order: 1; */
   }
   .title-label {
     padding: 0 0.5rem;
     /* order: 2; */
   }
+  .title-input, .editor {
+    transition-property: background-color, color, border-color, outline-color;
+    transition-duration: 300ms;
+  }
   .title-input:focus, .editor:focus {
     outline: 1px solid var(--lightgray);
+    background-color: var(--focus-background-color);
   }
   .subheading {
     font-size: 1.25rem;
@@ -212,11 +216,7 @@
     font-size: 3rem;
     text-transform: uppercase;
     line-height: 1.3;
-    background-color: var(--whitish);
     border: none;
-  }
-  .editor:focus {
-    background-color: var(--white);
   }
   :global(.editor > * + *) {
     margin-top: 1.5rem;

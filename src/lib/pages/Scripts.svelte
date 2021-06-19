@@ -22,8 +22,8 @@
 <section class="scripts">
   <header>
     <h2>Scripts</h2>
-    <a href="/" class="header-link" title="New Script">
-      <Icon name="new" size={2} />
+    <a href="/" class="header-link button" title="New Script">
+      <Icon name="new" size={2} title="New" />
     </a>
   </header>
   <section class="script-list">
@@ -36,11 +36,11 @@
         </section>
       </a>
         <section class="item-control">
-          <a href="/prompt/{script.id}" title="Prompt">
-            <Icon name="prompt" size={2} />
+          <a href="/prompt/{script.id}" title="Prompt" class="button">
+            <Icon name="prompt" size={2} title="Prompt" />
           </a>
           <button on:click={() => deleteScript(script.id)} title="Delete">
-            <Icon name="delete" size={2} />
+            <Icon name="delete" size={2} title="Delete" />
           </button>
         </section>
       </article>
@@ -55,10 +55,8 @@
     align-items: center;
   }
   .header-link {
-    color: var(--gray);
-  }
-  .header-link:hover, .header-link:focus, .header-link:active {
-    color: var(--blackish);
+    margin: 0.25rem;
+    outline-offset: -1px;
   }
   .scripts {
     display: flex;
@@ -80,13 +78,11 @@
     display: grid;
     grid-template-columns: 1fr auto;
     padding: 0.5rem;
-    border: 1px solid var(--whitish);
     transition: all 300ms ease-out;
-    color: var(--gray);
   }
-  .script-item:hover, article:focus{
-    background-color: var(--whitish);
-    color: var(--blackish);
+  .script-item:hover{
+    color: var(--focus-color);
+    background-color: var(--focus-background-color);
   }
   .item-control {
     display: flex;
@@ -94,12 +90,16 @@
     justify-self: flex-end;
     align-items: center;
     gap: 1rem;
+    margin: 0 0.5rem 0 0;
   }
   a {
     font-size: 2rem;
-    /* font-weight: 700; */
     text-decoration: none;
     justify-self: stretch;
+  }
+  a:focus {
+    background-color: var(--focus-background-color);
+    color: var(--focus-color);
   }
   .date {
     font-size: var(--size-400);

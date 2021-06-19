@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  outline-offset: 5px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -7,7 +8,6 @@
 }
 
 :root {
-  color: var(--blackish);
   --blackish: #0e0d0d;
   --lightblackish: #141313;
   --lightlightblackish: #201d1d;
@@ -19,6 +19,16 @@
   --lightgray: #bababa;
   --darkgray: #333333;
   --blue: #4682b4;
+
+  --light-switch-icon: "🌞";
+  --dark-switch-icon: "🌚";
+  --light-switch-text: "Light Mode";
+  --dark-switch-text: "Dark Mode";
+
+  --switch-icon: var(--dark-switch-icon);
+  --switch-text: var(--dark-switch-text);
+  --switch-focus-background: var(--darkwhitish);
+
   --size-300: 0.75rem;
   --size-400: 1rem;
   --size-500: 1.33rem;
@@ -26,7 +36,62 @@
   --size-700: 2.36rem;
   --size-800: 3.15rem;
   --size-900: 4.2rem;
+
+  --text-color: var(--blackish);
+  --background-color: var(--whitish);
+  --focus-background-color: var(--darkwhitish);
+  --focus-outline-color: var(--lightgray);
+  --input-focus-color: var(--white);
+  --button-focus-background-color: var(--gray);
+  --button-focus-color: var(--whitish);
+  
   font-size: var(--size-400);
+}
+
+#theme-switch {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+#theme-switch:focus ~ .home .switch-label::before,
+#theme-switch:focus ~ .home .switch-label::after, 
+.switch-label:hover::before, 
+.switch-label:hover::after {
+  background-color: var(--switch-focus-background);
+  /* border: 1px solid #fff; */
+}
+
+.switch-label {
+  font-size: var(--size-500);
+  cursor: pointer;
+}
+
+.switch-label::after {
+  content: var(--switch-icon);
+  padding: 0.5rem;
+  transition: all 300ms ease-out;
+}
+
+.switch-label::before {
+  content: var(--switch-text);
+  padding: 0.5rem;
+  transition: all 300ms ease-out;
+}
+
+#theme-switch:checked ~ .home{
+  --text-color: var(--whitish);
+  --background-color: var(--blackish);
+  --focus-background-color: var(--lightblackish);
+  --focus-outline-color: var(--lightlightblackish);
+  --input-focus-color: var(--lightblackish);
+  --button-focus-background-color: var(--lightblackish);
+  --button-focus-color: var(--whitish);
+  --switch-icon: var(--light-switch-icon);
+  --switch-text: var(--light-switch-text);
+  --switch-focus-background: var(--darkgray);
 }
 
 #app {
@@ -35,6 +100,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.home {
+  transition-property: background-color, color;
+  transition-duration: 300ms;
 }
 
 a, button {
@@ -49,12 +121,24 @@ a, button {
 }
 
 a:hover, button:hover {
-  color: var(--blackish);
+  color: var(--button-focus-color);
 }
 
-button:focus {
-  outline: 1px solid var(--lightgray);
-  color: var(--blackish);
+button, .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+button:focus, .button:focus {
+  outline: 1px solid var(--button-focus-color);
+  color: var(--button-focus-color);
+  background-color: var(--button-focus-background-color);
+}
+
+a:focus[title], button:focus[title] {
+  visibility: visible;
 }
 
 h1 {
@@ -76,4 +160,14 @@ h4 {
 ::selection {
   background-color: var(--blackish);
   color: var(--whitish);
+}
+
+input[type="text"], textarea {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+input[type="text"]:focus, textarea:focus {
+  color: var(--text-color);
+  background-color: var(--input-focus-color);
 }

@@ -44,17 +44,13 @@
 
 </script>
 <figure class="icon" style="font-size: {size}rem">
-  <svg class="icon" viewBox="0 0 25 25" fill-rule="evenodd" clip-rule="evenodd" aria-labelledby="icon-label">
+  <svg class="icon" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd" aria-labelledby="icon-label">
     <!-- <title id="icon-label">{title}</title> -->
     {#each paths as path}
     <path d={path}></path>
     {/each}
   </svg>
-  {#if title !== ""}
-    <figcaption style="font-size: {titleSize}rem">{title}</figcaption>
-  {:else}
-    <figcaption class="visually-hidden">{title}</figcaption>
-  {/if}
+    <figcaption class="visually-hidden" style="font-size: {titleSize}rem">{title}</figcaption>
 </figure>
 
 <style>
@@ -69,11 +65,10 @@
     overflow: visible;
   }
   .visually-hidden  { 
-    position:  absolute  !important; 
-    height:  1px; 
-    width:  1px; 
-    overflow:  hidden; 
-    clip:  rect(1px, 1px, 1px, 1px); 
-    white-space: nowrap; /* added line */
+    opacity: 0;
+  }
+
+  .icon:hover > .visually-hidden, .icon:focus > .visually-hidden {
+    opacity: 1;
   }
 </style>

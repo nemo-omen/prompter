@@ -5,7 +5,7 @@
 
 <!-- <Header /> -->
 
-<main>
+<main tabindex="0">
     <Home />
 </main>
 

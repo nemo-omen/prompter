@@ -11,16 +11,16 @@
 <section class="toolbar">
   <div class="button-group">
     <button on:click={() => dispatch('newScript')} title="New Script">
-      <Icon name="new" size={2} />
+      <Icon name="new" size={2} title="New" />
     </button>
     <button on:click={() => dispatch('saveScript')} title="Save">
-      <Icon name="save" size={2} />
+      <Icon name="save" size={2} title="Save" />
     </button>
-    <a href="/prompt/{id}" title="Prompt">
-      <Icon name="prompt" size={2} />
+    <a href="/prompt/{id}" class="button" title="Prompt">
+      <Icon name="prompt" size={2} title="Prompt" />
     </a>
     <button on:click={() => dispatch('showInfo')} title="Cheatsheet">
-      <Icon name="info" size={2} />
+      <Icon name="info" size={2} title="Help" />
     </button>
   </div>
 </section>
@@ -35,5 +35,8 @@
   .button-group {
     display: flex;
     gap: 1rem;
+  }
+  :global(button:focus > .icon > .visually-hidden, .button:focus > .icon > .visually-hidden) {
+    opacity: 1;
   }
 </style>
