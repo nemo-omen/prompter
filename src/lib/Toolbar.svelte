@@ -10,16 +10,16 @@
 
 <section class="toolbar">
   <div class="button-group">
-    <button on:click={() => dispatch('newScript')} title="New Script">
+    <button on:click={() => dispatch('newScript')} aria-label="New Script">
       <Icon name="new" size={2} title="New" />
     </button>
-    <button on:click={() => dispatch('saveScript')} title="Save">
+    <button on:click={() => dispatch('saveScript')} aria-label="Save">
       <Icon name="save" size={2} title="Save" />
     </button>
-    <a href="/prompt/{id}" class="button" title="Prompt">
+    <a href="/prompt/{id}" class="button" aria-label="Prompt">
       <Icon name="prompt" size={2} title="Prompt" />
     </a>
-    <button on:click={() => dispatch('showInfo')} title="Cheatsheet">
+    <button on:click={() => dispatch('showInfo')} aria-label="Cheatsheet">
       <Icon name="info" size={2} title="Help" />
     </button>
   </div>

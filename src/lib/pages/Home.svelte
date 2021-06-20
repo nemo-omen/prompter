@@ -6,10 +6,10 @@
 </script>
 
   <Route path="/">
-    <input type="checkbox" id="theme-switch">
+    <input type="checkbox" id="theme-switch" tabindex="-1" aria-hidden="true">
     <section class="home">
-      <section class="edit-header">
-        <label for="theme-switch" class="switch-label"></label>
+      <section class="edit-header" aria-hidden="true">
+        <label for="theme-switch" class="switch-label" tabindex="-1"></label>
       </section>
       <Editor />
       <Scripts />

@@ -1,7 +1,7 @@
 <script>
   import { flip } from 'svelte/animate';
   import { fade } from 'svelte/transition';
-  import { meta, router } from 'tinro';
+  import { meta, router, active } from 'tinro';
   import { scripts, remove } from '../services/db.service.js';
   import Icon from '../Icon.svelte';
 
@@ -28,13 +28,22 @@
   </header>
   <section class="script-list">
     {#each $scripts as script (script.id)}
-    <article class="script-item" animate:flip transition:fade>
-        <a href="/{script.id}">
+    <article class="script-item" data-state="{$router.path === '/' + script.id ? 'active' : 'inactive'}" animate:flip transition:fade>
+      {#if $router.path === '/' + script.id}
+      <a href="/{script.id}" aria-current="page">
         <section class="item-info">
           <h2>{script.title}</h2>
           <p class="date">{script.date}</p>
         </section>
       </a>
+      {:else}
+        <a href="/{script.id}">
+          <section class="item-info">
+            <h2>{script.title}</h2>
+            <p class="date">{script.date}</p>
+          </section>
+        </a>
+      {/if}
         <section class="item-control">
           <a href="/prompt/{script.id}" title="Prompt" class="button">
             <Icon name="prompt" size={2} title="Prompt" />
@@ -98,11 +107,18 @@
     font-size: 2rem;
     text-decoration: none;
     justify-self: stretch;
+    transition: all 300ms ease-out;
   }
   .date {
     font-size: var(--size-400);
     font-weight: 500;
     margin: 0.5rem 0.25rem;
     color: var(--gray);
+  }
+  :global([data-state="active"]) {
+    background-color: var(--focus-background-color);
+  }
+  :global([data-state="active"] > a) {
+    color: var(--blue);
   }
 </style>

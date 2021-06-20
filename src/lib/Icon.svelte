@@ -43,8 +43,8 @@
   $: paths = iconPaths[name] || [];
 
 </script>
-<figure class="icon" style="font-size: {size}rem">
-  <svg class="icon" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd" aria-labelledby="icon-label">
+<figure class="icon" style="font-size: {size}rem" aria-label="{title}" aria-hidden="true" focusable="false">
+  <svg class="icon" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
     {#each paths as path}
     <path d={path}></path>
     {/each}
